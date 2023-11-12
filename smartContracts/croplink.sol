@@ -63,6 +63,15 @@ contract CropLink is ChainlinkClient {
     mapping(bytes32 => TruflationData) private requestIdToTruflationData;
     mapping(address => TruflationData) public truflationDataMap;
 
+    // Event for notifying users about new produce additions
+    event ProduceAdded(address indexed farmer, string name, uint256 quantity, uint256 price);
+
+    // Event for notifying users about successful purchases
+    event ProducePurchased(address indexed buyer, address indexed farmer, string name, uint256 quantity, uint256 price);
+
+    // Event for notifying users about changes in market prices
+    event MarketPriceSet(address indexed buyer, uint256 price);
+
     constructor() {
         setChainlinkToken(0x779877A7B0D9E8603169DdbD7836e478b4624789);
 
@@ -123,6 +132,9 @@ contract CropLink is ChainlinkClient {
         produceList[msg.sender].push(
             Produce(_name, _quantity, _price, false, index, msg.sender)
         );
+
+        // Notify users about new produce addition
+        emit ProduceAdded(msg.sender, _name, _quantity, _price);
     }
 
     function adjustPriceByWeather() public view returns (int256) {
@@ -213,6 +225,9 @@ contract CropLink is ChainlinkClient {
         produce.sold = true;
         removeSoldProduce(_farmer, _index);
         _farmer.transfer(msg.value);
+
+        // Notify users about successful purchase
+        emit ProducePurchased(msg.sender, _farmer, produce.name, produce.quantity, produce.price);
     }
 
     function editProduce(
@@ -243,14 +258,14 @@ contract CropLink is ChainlinkClient {
         require(_index < produces.length, "Invalid produce index");
         Produce storage produce = produces[_index];
         require(!produce.sold, "Cannot delete sold produce");
-        //Deleted the element at the index without modifying array len
+        // Deleted the element at the index without modifying array len
         delete produces[_index];
     }
 
     function removeSoldProduce(address _farmer, uint256 _index) internal {
         Produce[] storage produces = produceList[_farmer];
         require(_index < produces.length, "Invalid produce index");
-        //Deleted the element at the index without modifying array len
+        // Deleted the element at the index without modifying array len
         delete produces[_index];
     }
 
@@ -262,6 +277,9 @@ contract CropLink is ChainlinkClient {
 
         marketPrices[msg.sender] = MarketPrice(msg.sender, msg.value);
         marketPriceVerified[msg.sender] = true;
+
+        // Notify users about changes in market prices
+        emit MarketPriceSet(msg.sender, msg.value);
     }
 
     // Chainlink Integration

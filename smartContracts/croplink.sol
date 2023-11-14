@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity  >=0.7.6 <0.8.6;
+pragma solidity >=0.7.6 <0.8.6;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol";
@@ -35,11 +35,6 @@ contract CropLink is ChainlinkClient {
         bool isRainy;
     }
 
-    struct TruflationData {
-        uint256 truflationRate;
-        // Add any other relevant Truflation data fields
-    }
-
     AggregatorV3Interface private demandAggregator;
     AggregatorV3Interface private supplyAggregator;
     AggregatorV3Interface private truflationAggregator;
@@ -60,8 +55,6 @@ contract CropLink is ChainlinkClient {
     mapping(bytes32 => uint256) private requestIdToIndex;
 
     mapping(bytes32 => WeatherData) private requestIdToWeatherData;
-    mapping(bytes32 => TruflationData) private requestIdToTruflationData;
-    mapping(address => TruflationData) public truflationDataMap;
 
     // Event for notifying users about new produce additions
     event ProduceAdded(address indexed farmer, string name, uint256 quantity, uint256 price);
@@ -315,8 +308,8 @@ contract CropLink is ChainlinkClient {
         uint256 _index
     ) internal view returns (uint256) {
         uint256 originalPrice = produceList[_farmer][_index].price;
-        uint256 truflationRate = truflationDataMap[_farmer].truflationRate;
-        uint256 adjustedPrice = (originalPrice * truflationRate) / 100; // Adjust the price based on the truflation rate
+        int256 priceAdjustment = this.adjustPriceByWeather();
+        uint256 adjustedPrice = (originalPrice * uint256(priceAdjustment)) / 100; // Adjust the price based on the weather
         return adjustedPrice;
     }
 
@@ -341,12 +334,8 @@ contract CropLink is ChainlinkClient {
             "The buyer doesn't have enough balance to buy the produce"
         );
 
-        int256 priceAdjustment = this.adjustPriceByWeather();
-        int256 totalAdjustedPrice = int(totalCost) +
-            (int(totalCost) / priceAdjustment);
-
-        payable(msg.sender).transfer(uint(totalAdjustedPrice));
-        buyerPrice.price -= uint(totalAdjustedPrice);
+        payable(msg.sender).transfer(totalCost);
+        buyerPrice.price -= totalCost;
     }
 
     function transferFunds(

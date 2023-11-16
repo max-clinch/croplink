@@ -51,11 +51,9 @@ CropLink integrates with AWS Lambda, API Gateway, and the USDA API to adjust mar
 
 ## Contributors
 
-- List contributors or acknowledge sources if applicable.
 
 ## License
 
-Specify the license under which your code is distributed.
 
 ---
 

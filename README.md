@@ -1,3 +1,68 @@
+# CropLink
+
+**An AgriTech Dapp with weather-savvy smart contracts for bountiful selling**
+
+CropLink is an AgriTech decentralized application (Dapp) that transforms the agricultural selling landscape. It establishes a decentralized platform connecting farmers with registered buyers. The platform utilizes smart contracts and Chainlink oracles to facilitate transparent transactions and manage risks related to unpredictable weather conditions.
+
+## Features
+
+- **Listing Produce:**
+  Farmers can easily list and add their produce, specifying details such as name, quantity, and price.
+
+- **Produce Management:**
+  Farmers have the capability to view and manage their list of produce.
+
+- **Fair Transactions:**
+  Smart contracts, powered by Chainlink oracles, ensure fair and transparent transactions.
+
+- **Weather Monitoring:**
+  CropLink monitors weather conditions through Chainlink Automation. In adverse conditions, the smart contracts activate automatically.
+
+- **Onboarding Simplified:**
+  Farmers only need a Metamask account to get started. Currently operating on the Sepolia Testnet.
+
+## Smart Contract Integration
+
+CropLink employs smart contracts integrated with Chainlink oracles to monitor and respond to real-time weather conditions. This ensures that farmers can sell their crops at fair prices, even in the face of unpredictable weather events.
+
+## External Adapter
+
+To enhance functionality, CropLink uses AWS Lambda, API Gateway, and the USDA API to host an external adapter. This adapter allows the hybrid smart contract to connect to a Chainlink Oracle and adjust market prices based on real-time global demand for farm commodities/crops.
+
+## Getting Started
+
+1. **Prerequisites:**
+   - Install Metamask for onboarding.
+   - Connect to the Sepolia Testnet.
+
+2. **Listing Produce:**
+   - Use the Dapp to easily list and manage your produce.
+
+3. **Fair Transactions:**
+   - Experience transparent transactions with the power of smart contracts and Chainlink oracles.
+
+## Weather Monitoring
+
+Chainlink Automation constantly monitors weather conditions, ensuring smart contracts respond to adverse events automatically.
+
+## External Adapter Integration
+
+CropLink integrates with AWS Lambda, API Gateway, and the USDA API to adjust market prices based on real-time global demand.
+
+## Contributors
+
+- List contributors or acknowledge sources if applicable.
+
+## License
+
+Specify the license under which your code is distributed.
+
+---
+
+Feel free to customize the content and structure further based on your project's specific details and requirements.
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

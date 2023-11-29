@@ -9,7 +9,7 @@ const Navbar = () => {
   const { state } = useAuthContext() as AuthContextProps;
 
   return (
-    <Box bg="whitesmoke" position={"sticky"} top="0" zIndex={99}>
+    <Box bg="white" position={"sticky"} top="0" zIndex={99}>
       <Container maxW={"7xl"}>
         <Stack
           as="nav"
@@ -21,15 +21,14 @@ const Navbar = () => {
         >
           <Flex align="center">
             <Image
-              w={14}
+              w={60}
               rounded={"full"}
               mr="2"
-              src="/assets/logo.png"
+              src="/assets/logo.svg"
               alt="logo"
+              mt="4"
             />
-            <Heading as="h1" size="lg" color="green.600">
-              CROPLINK
-            </Heading>
+            
           </Flex>
 
           <Box display="flex" width="auto" alignItems="center">

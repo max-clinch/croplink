@@ -5,12 +5,9 @@ import {
   Heading,
   Text,
   Container,
-  useBreakpointValue,
-  IconProps,
-  Icon,
   Image,
-  useColorModeValue,
-  Divider,
+  Grid,
+  Button,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useCallback, useEffect } from "react";
@@ -34,7 +31,7 @@ export default function Login() {
 
   return (
     <Box>
-      <Box position={"relative"} bgGradient="linear(to-r, green.100,green.300)">
+      <Box position={"relative"} bgGradient="white">
         <Container maxW={"7xl"}>
           <Stack
             align={"center"}
@@ -45,18 +42,20 @@ export default function Login() {
             <Stack flex={1} spacing={{ base: 5, md: 10 }}>
               <Stack>
                 <Heading
-                  lineHeight={1.1}
-                  fontSize={{ base: "4xl", sm: "5xl", md: "6xl", lg: "8xl" }}
-                  bgGradient="linear(to-r, green.300,blue.500)"
+                  lineHeight={1.5}
+                  fontSize={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl" }}
+                  bgGradient="linear(to-r, #000000,#30A43B)"
                   bgClip="text"
                 >
-                  CropLink
+                  Smart Farms and Harvest,
+                  <br></br>Smarter Trades and Choices.
                 </Heading>
                 <Heading
-                  fontSize={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl" }}
+                  fontSize={{ base: "xl", sm: "2xl", md: "lg", lg: "xl" }}
                 >
-                  revolutionizes produce sales, empowering farmers with secure
-                  and efficient transactions.
+                  Transforming the sale of agricultural products, providing
+                  <br></br>both farmers and buyers with secure and efficient
+                  <br></br> transactions with our weather-savvy smart contracts
                 </Heading>
               </Stack>
               <Stack>
@@ -84,7 +83,7 @@ export default function Login() {
                   align={"center"}
                   w={"100%"}
                   h={"100%"}
-                  src={"/assets/hero.webp"}
+                  src={"/assets/heroimage.svg"}
                 />
               </Box>
             </Flex>
@@ -100,44 +99,49 @@ export default function Login() {
         >
           <Heading
             lineHeight={1.1}
-            fontSize={{ base: "2xl", sm: "2xl", md: "3xl", lg: "5xl" }}
-            bgGradient="linear(to-r, green.300,orange.300)"
-            bgClip="text"
-            textAlign="center"
-            maxW={{ base: "lg", sm: "xl", md: "2xl", lg: "4xl" }}
-            m="auto"
-          >
-            An AgriTech Dapp with weather-savvy smart contracts for bountiful
-            selling
-          </Heading>
-          <Heading
-            lineHeight={1.1}
             fontSize={{ base: "xl", sm: "xl", md: "2xl", lg: "3xl" }}
             textAlign="center"
             maxW={{ base: "lg", sm: "xl", md: "2xl", lg: "3xl" }}
             m="auto"
             pb="20"
           >
-            Where farmers sow, Chainlink oracle grows, and sellers reap the
-            harvest of decentralized agri-trade
+            A seamless and transparent ecosystem for
+            <br></br>farmers and sellers alike
           </Heading>
 
           <Box
             position={"relative"}
             rounded={"2xl"}
-            boxShadow={"2xl"}
             width={"full"}
             overflow={"hidden"}
-            maxW="4xl"
+            maxW="100%"
           >
-            <Image
-              alt={"Hero Image"}
-              fit={"cover"}
-              align={"center"}
-              w={"100%"}
-              h={"100%"}
-              src={"/assets/agriculture.jpg"}
-            />
+            <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+              <Image
+                alt="farmer"
+                fit={"cover"}
+                align={"center"}
+                w={"100%"}
+                h={"100%"}
+                src={"/assets/farmer.svg"}
+              />
+              <Image
+                alt="buyer"
+                fit={"cover"}
+                align={"center"}
+                w={"100%"}
+                h={"100%"}
+                src={"/assets/buyer.svg"}
+              />
+            </Grid>
+            <Stack spacing={'30rem'} direction="row" align="center" marginTop={4} marginLeft={40}>
+              <Button bg="#E5FFE8" borderColor={"#E5FFE8"} size="lg" textColor={'#30A43B'}>
+                Sign Up as a Farmer
+              </Button>
+              <Button bg="#E5FFE8" borderColor={"#E5FFE8"} size="lg" textColor={'#30A43B'}>
+              Sign Up as a Buyer
+              </Button>
+            </Stack>
           </Box>
         </Stack>
       </Container>

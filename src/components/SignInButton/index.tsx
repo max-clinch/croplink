@@ -189,8 +189,8 @@ const SignInButton = () => {
       size={"lg"}
       fontWeight={"normal"}
       px={6}
-      colorScheme={"green"}
-      bg={"green.400"}
+      colorScheme={"#30A43B"}
+      bg={"#30A43B"}
       _hover={{ bg: "green.500" }}
       onClick={() => connectWallet()}
       isDisabled={buttonLoading}

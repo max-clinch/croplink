@@ -7,5 +7,5 @@ export const parseEthToWei = (val: number) => {
 
 export const parseWeiToEth = (val: number) => {
   if (!val) return "0";
-  return ethers.utils.formatEther(val.toString());
+  return ethers.formatEther(val.toString());
 };

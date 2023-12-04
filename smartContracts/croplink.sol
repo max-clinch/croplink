@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.7.6 <0.8.6;
+pragma solidity >=0.7.6 <0.8.0;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol";
-import "@chainlink/contracts/src/v0.7/interfaces/LinkTokenInterface.sol" as MyLinkToken; // Rename LinkTokenInterface
+import "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol" as MyLinkToken; // Rename LinkTokenInterface
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 
 contract CropLink is ChainlinkClient {

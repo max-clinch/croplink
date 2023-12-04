@@ -12,7 +12,8 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ReactNode, useCallback, useEffect, useState } from "react";
-import { FaViadeo, FaShoppingBag } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FaViadeo} from "react-icons/fa";
 import {
   useContractWrite,
   usePrepareContractWrite,
@@ -138,14 +139,13 @@ export default function Register() {
   return (
     <Box>
       <Container maxW={"7xl"}>
-        <Box py={12}>
+        <Box py={16}>
           <VStack spacing={2} textAlign="center">
             <Heading as="h1" fontSize="4xl">
-              Select your role
+            Are you looking to sell or looking to 
+            <br></br>buy farm produce?
             </Heading>
-            <Text fontSize="lg" color={"gray.500"}>
-              Are you looking to sell your crops or looking to buy?
-            </Text>
+            
           </VStack>
           <Stack
             direction={{ base: "column", sm: "row" }}
@@ -159,12 +159,13 @@ export default function Register() {
               name="farmer"
               setSelected={(name) => setSelected(name)}
             >
-              <Box py={4} px={12} minW={"200"}>
-                <Text fontWeight="500" fontSize="3xl">
+              <Box py={8} px={12} minW={"200"}>
+                <Text fontWeight="400" fontSize="2xl">
                   <Icon as={FaViadeo} />
                 </Text>
-                <Text fontWeight="500" fontSize="2xl">
-                  Farmer
+                <Text fontWeight="400" fontSize="xl">
+                I am looking to sell my 
+                <br></br>farm produce
                 </Text>
               </Box>
             </RoleWrapper>
@@ -174,12 +175,13 @@ export default function Register() {
               name="buyer"
               setSelected={(name) => setSelected(name)}
             >
-              <Box py={4} px={12} minW={"200"}>
-                <Text fontWeight="500" fontSize="3xl">
-                  <Icon as={FaShoppingBag} />
+              <Box py={8} px={12} minW={"200"}>
+                <Text fontWeight="400" fontSize="2xl">
+                  <Icon as={ AiOutlineShoppingCart } />
                 </Text>
-                <Text fontWeight="500" fontSize="2xl">
-                  Buyer
+                <Text fontWeight="400" fontSize="xl">
+                I am looking to buy 
+                <br></br>farm produce
                 </Text>
               </Box>
             </RoleWrapper>

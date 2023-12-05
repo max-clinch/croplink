@@ -31,7 +31,7 @@ type Product = {
   farmer: string;
 };
 
-const MyListings: FC = () => {
+const Overview: FC = () => {
   const { address } = useAccount();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -92,13 +92,13 @@ const MyListings: FC = () => {
               alignItems="center"
               marginBottom="5"
             >
-              <Heading size="lg">Add Your Products</Heading>
+              <Heading size="lg">My Produce</Heading>
               <Button
                 colorScheme="green"
                 onClick={onOpen}
                 isLoading={isLoading}
               >
-                Add new
+                Add New Produce
               </Button>
             </Flex>
 
@@ -190,4 +190,4 @@ const MyListings: FC = () => {
   );
 };
 
-export default MyListings;
+export default Overview;

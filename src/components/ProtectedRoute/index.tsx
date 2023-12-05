@@ -56,7 +56,7 @@ function ProtectedRoute({ children }: any) {
       }
       if (user && role === "farmer" && !farmerPaths.includes(path)) {
         setAuthorized(false);
-        return router.push({ pathname: "/my-listings" });
+        return router.push({ pathname: "/overview" });
       }
       if (user && role === "buyer" && !buyerPaths.includes(path)) {
         setAuthorized(false);

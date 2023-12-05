@@ -18,13 +18,13 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 
 import {
-  BENEFITS,
-  FIND_BUYER,
+  TRANSACTIONS,
+  MY_PRODUCE,
   FIND_FARMERS,
   LISTINGS,
   MARKET_PRICES,
-  MY_LISTINGS,
-  DEMAND_FEEDS,
+  OVERVIEW,
+  ORDERS,
 } from "../../../constants/paths";
 
 import {
@@ -73,17 +73,21 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   const linkItems: Array<LinkItemProps> = [
     ...(role === "farmer"
       ? [
-          { name: "My listings", icon: FiList, link: MY_LISTINGS },
-          { name: "Find buyer", icon: GiReceiveMoney, link: FIND_BUYER },
-          { name: "Demand feeds", icon: FiDollarSign, link: DEMAND_FEEDS },
-          { name: "Benefits", icon: HiOutlineEmojiHappy, link: BENEFITS },
+          { name: "Overview", icon: FiList, link: OVERVIEW },
+          { name: "My Produce", icon: GiReceiveMoney, link: MY_PRODUCE },
+          { name: "Orders", icon: FiDollarSign, link: ORDERS },
+          {
+            name: "Transactions",
+            icon: HiOutlineEmojiHappy,
+            link: TRANSACTIONS,
+          },
         ]
       : []),
     ...(role === "buyer"
       ? [
           { name: "Listings", icon: FiList, link: LISTINGS },
           { name: "Find farmer", icon: GiReceiveMoney, link: FIND_FARMERS },
-          { name: "Demand feeds", icon: FiDollarSign, link: DEMAND_FEEDS },
+          { name: "Orders", icon: FiDollarSign, link: ORDERS },
           { name: "Market prices", icon: FiTrendingUp, link: MARKET_PRICES },
         ]
       : []),
@@ -91,11 +95,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
+      bg={useColorModeValue("white", "gray.900")}
       w={{ base: "full", md: 60 }}
       maxH="full"
       h="full"
-      py={6}
+      py={12}
       px={4}
       rounded="xl"
       position="sticky"

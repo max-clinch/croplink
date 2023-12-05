@@ -4,9 +4,9 @@ import { Suspense } from "react";
 import LoadingPage from "@/components/LoadingPage";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
-const DemandFeedsPage = () => {
-  const DemandFeeds = dynamic(
-    () => import("@/components/DemandFeeds").then((res) => res.default),
+const OrdersPage = () => {
+  const Orders = dynamic(
+    () => import("@/components/Orders").then((res) => res.default),
     {
       ssr: false,
     }
@@ -15,10 +15,10 @@ const DemandFeedsPage = () => {
   return (
     <Suspense fallback={<LoadingPage />}>
       <ProtectedRoute>
-        <DemandFeeds />
+        <Orders />
       </ProtectedRoute>
     </Suspense>
   );
 };
 
-export default DemandFeedsPage;
+export default OrdersPage;

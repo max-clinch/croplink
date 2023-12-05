@@ -159,11 +159,11 @@ To contribute, please follow the following steps:
 
 # Team Members
 
+
+- Ifeoluwa Sanni
+- Oluwafemi Oluwatoba
+- Kolawole Ayoola 
 - Suleman Ismaila
-- 
-- 
-- 
-- 
 
 # Acknowledgements
 

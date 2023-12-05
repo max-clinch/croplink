@@ -4,9 +4,9 @@ import { Suspense } from "react";
 import LoadingPage from "@/components/LoadingPage";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
-const BenefitsPage = () => {
-  const Benefits = dynamic(
-    () => import("../../components/Benefits").then((res) => res.default),
+const TransactionsPage = () => {
+  const Transactions = dynamic(
+    () => import("../../components/Transactions").then((res) => res.default),
     {
       ssr: false,
     }
@@ -15,10 +15,10 @@ const BenefitsPage = () => {
   return (
     <Suspense fallback={<LoadingPage />}>
       <ProtectedRoute>
-        <Benefits />
+        <Transactions />
       </ProtectedRoute>
     </Suspense>
   );
 };
 
-export default BenefitsPage;
+export default TransactionsPage;

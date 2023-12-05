@@ -45,7 +45,7 @@ type BuyerPrice = {
   buyer: string;
 };
 
-export default function FindBuyer() {
+export default function MyProduce() {
   const { address } = useAccount();
   const toast = useToast();
 
@@ -109,7 +109,7 @@ export default function FindBuyer() {
             alignItems="center"
             marginBottom="5"
           >
-            <Heading size="lg">Find buyers</Heading>
+            <Heading size="lg">My Produce</Heading>
           </Flex>
 
           <Box>

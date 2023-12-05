@@ -136,7 +136,7 @@ export default function DemandFeeds() {
               alignItems="center"
               marginBottom="5"
             >
-              <Heading size="lg">Demand feeds</Heading>
+              <Heading size="lg">Orders</Heading>
             </Flex>
             <Select
               focusBorderColor="rgb(226, 232, 240)"

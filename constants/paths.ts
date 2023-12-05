@@ -1,10 +1,10 @@
 export const LOGIN = "/login";
 export const REGISTER = "/register";
-export const MY_LISTINGS = "/my-listings";
+export const OVERVIEW = "/overview";
 export const LISTINGS = "/listings";
-export const FIND_BUYER = "/find-buyer";
-export const DEMAND_FEEDS = "/demand-feeds";
-export const BENEFITS = "/benefits";
+export const  MY_PRODUCE = "/my-produce";
+export const ORDERS = "/orders";
+export const TRANSACTIONS = "/transactions";
 export const FIND_FARMERS = "/find-farmers";
 export const MARKET_PRICES = "/market-prices";
 
@@ -16,10 +16,10 @@ const farmerPaths = [
   ...new Set([
     ...publicPaths,
     ...privatePaths,
-    MY_LISTINGS,
-    FIND_BUYER,
-    DEMAND_FEEDS,
-    BENEFITS,
+    OVERVIEW,
+    MY_PRODUCE,
+    ORDERS,
+    TRANSACTIONS,
   ]),
 ];
 
@@ -29,7 +29,7 @@ const buyerPaths = [
     ...privatePaths,
     LISTINGS,
     FIND_FARMERS,
-    DEMAND_FEEDS,
+    ORDERS,
     MARKET_PRICES,
   ]),
 ];

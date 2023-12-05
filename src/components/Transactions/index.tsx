@@ -28,7 +28,7 @@ import Sidebar from "../Sidebar";
 
 import { useAuth } from "@/api/getAuth";
 
-function Benefits() {
+function Transactions() {
   const toast = useToast();
   const { data = {}, isLoading: isAuthLoading, refetch } = useAuth();
   const { id, isVerified } = data;
@@ -262,4 +262,4 @@ function Benefits() {
   );
 }
 
-export default Benefits;
+export default Transactions;

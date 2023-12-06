@@ -134,13 +134,21 @@ export default function Login() {
                 src={"/assets/buyer.svg"}
               />
             </Grid>
-            <Stack spacing={'30rem'} direction="row" align="center" marginTop={4} marginLeft={40}>
-              <Button bg="#E5FFE8" borderColor={"#E5FFE8"} size="lg" textColor={'#30A43B'}>
-                Sign Up as a Farmer
-              </Button>
-              <Button bg="#E5FFE8" borderColor={"#E5FFE8"} size="lg" textColor={'#30A43B'}>
-              Sign Up as a Buyer
-              </Button>
+            <Stack
+              spacing={"30rem"}
+              direction="row"
+              align="center"
+              marginTop={4}
+              marginLeft={40}
+            >
+              <Stack>
+                <Text color={"#30A43B"}>Sign Up as a Farmer</Text>
+                <SignInButton />
+              </Stack>
+              <Stack>
+                <Text color={"#30A43B"}>Sign Up as a Buyer</Text>
+                <SignInButton />
+              </Stack>
             </Stack>
           </Box>
         </Stack>
